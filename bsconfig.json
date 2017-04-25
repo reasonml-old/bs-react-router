@@ -1,0 +1,8 @@
+{
+  "name" : "bs-react-router",
+  "reason": { "jsx": true },
+  "bs-dependencies": ["reason-react"],
+  "sources": [
+    "src"
+  ]
+}

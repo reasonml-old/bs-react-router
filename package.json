@@ -27,5 +27,8 @@
   "peerDependencies": {
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1"
+  },
+  "dependencies": {
+    "reason-react": "github:reasonml/reason-react"
   }
 }
