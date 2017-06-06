@@ -1,4 +1,6 @@
 external navLink : ReactRe.reactClass = "NavLink" [@@bs.module "react-router-dom"];
+external link : ReactRe.reactClass = "Link" [@@bs.module "react-router-dom"];
+external _switch : ReactRe.reactClass = "Switch" [@@bs.module "react-router-dom"];
 external route : ReactRe.reactClass = "Route" [@@bs.module "react-router-dom"];
 external browserRouter : ReactRe.reactClass = "BrowserRouter" [@@bs.module "react-router-dom"];
 
@@ -54,10 +56,34 @@ module Route = {
 };
 
 module NavLink = {
-  let createElement _to::(_to: string) =>
-  ReactRe.wrapPropsShamelessly
-    navLink
-    {
-      "to": _to
-    };
+  let createElement
+      _to::(_to: string)
+      activeClassName::(activeClassName: option string)=?
+      className::(className: option string)=? =>
+    ReactRe.wrapPropsShamelessly
+      navLink
+      {
+        "activeClassName": Js.Null_undefined.from_opt activeClassName,
+        "className": Js.Null_undefined.from_opt className,
+        "to": _to
+      };
 };
+
+module Link = {
+  let createElement
+      _to::(_to: string)
+      activeClassName::(activeClassName: option string)=?
+      className::(className: option string)=? =>
+    ReactRe.wrapPropsShamelessly
+      link
+      {
+        "activeClassName": Js.Null_undefined.from_opt activeClassName,
+        "className": Js.Null_undefined.from_opt className,
+        "to": _to
+      };
+};
+
+module Switch = {
+  let createElement = ReactRe.wrapPropsShamelessly _switch (Js.Obj.empty ());
+};
+
