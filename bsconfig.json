@@ -1,0 +1,10 @@
+{
+  "name": "bs-react-router",
+  "version": "0.0.1",
+  "sources": [
+    "src"
+  ],
+  "bs-dependencies" : [
+    "reason-react"
+  ]
+}

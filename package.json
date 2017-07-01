@@ -1,6 +1,6 @@
 {
   "name": "bs-react-router",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/bassjacob/bs-react-router#readme",
   "devDependencies": {
-    "bs-platform": "^1.7.1",
+    "bs-platform": "^1.7.5",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-router": "^4.1.1",
@@ -27,5 +27,8 @@
   "peerDependencies": {
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1"
+  },
+  "dependencies": {
+    "reason-react": "0.1.4"
   }
 }
