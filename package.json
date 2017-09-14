@@ -11,24 +11,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bassjacob/bs-react-router.git"
+    "url": "git+https://github.com/reasonml-community/bs-react-router.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bassjacob/bs-react-router/issues"
+    "url": "https://github.com/reasonml-community/bs-react-router/issues"
   },
-  "homepage": "https://github.com/bassjacob/bs-react-router#readme",
+  "homepage": "https://github.com/reasonml-community/bs-react-router#readme",
   "devDependencies": {
     "bs-platform": "^1.9.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "reason-react": "^0.2.4"
   },
   "peerDependencies": {
     "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "reason-react": "^0.2.4"
   }
 }
