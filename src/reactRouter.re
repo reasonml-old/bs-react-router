@@ -9,7 +9,7 @@ type renderFunc =
 
 let optionToBool = (optional) => 
   switch optional {
-  | Some _ => true
+  | Some(_) => true
   | _ => false
   };
 
