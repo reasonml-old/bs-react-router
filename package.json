@@ -1,6 +1,6 @@
 {
   "name": "bs-react-router",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -24,13 +24,13 @@
     "bs-platform": "^2.0.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.2",
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "reason-react": "^0.3.0"
   },
   "peerDependencies": {
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "reason-react": "^0.3.0"
   }
 }
