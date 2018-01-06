@@ -66,3 +66,4 @@ typings/
 
 lib
 .merlin
+*.bs.js
