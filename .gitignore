@@ -67,3 +67,4 @@ typings/
 lib
 .merlin
 .bsb.lock
+*.bs.js

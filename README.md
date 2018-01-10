@@ -1,6 +1,6 @@
-# NOT READY
+# Deprecated
 
-will eventually be [Reason](https://reasonml.github.io) bindings to [React Router](https://reacttraining.com/react-router/)
+This is the Reason interop wrapper for [React Router](https://reacttraining.com/react-router/). **Note** that ReasonReact itself [already comes with a router](https://reasonml.github.io/reason-react/docs/en/router.html).
 
 ## Install
 

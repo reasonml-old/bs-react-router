@@ -1,20 +1,25 @@
+type match = {. "params": Js.Dict.t(string)};
+
 type renderFunc =
   {
     .
-    "_match": Js.Dict.t(string),
+    /* Use name mangling notation prefix `_` to circumvent reserved names clashing.
+       https://bucklescript.github.io/docs/en/object.html#invalid-field-names */
+    "_match": match,
     "history": History.History.t,
     "location": History.History.Location.t
   } =>
   ReasonReact.reactElement;
 
-let optionToBool = (optional) =>
+let optionToBool = optional =>
   switch optional {
   | Some(_) => true
   | _ => false
   };
 
 module Route = {
-  [@bs.module "react-router-dom"] external route : ReasonReact.reactClass = "Route";
+  [@bs.module "react-router-dom"]
+  external route : ReasonReact.reactClass = "Route";
   let make =
       (
         ~exact: option(bool)=?,
@@ -79,6 +84,22 @@ module NavLink = {
         "style": Js.Null_undefined.from_opt(style),
         "activeStyle": Js.Null_undefined.from_opt(activeStyle)
       },
+
+module Redirect = {
+  [@bs.module "react-router-dom"]
+  external reactClass : ReasonReact.reactClass = "Redirect";
+  let make = (~_to: string, children) =>
+    ReasonReact.wrapJsForReason(~reactClass, ~props={"to": _to}, children);
+};
+
+module NavLink = {
+  [@bs.module "react-router-dom"]
+  external navLink : ReasonReact.reactClass = "NavLink";
+  let make = (~_to: string, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=navLink,
+      ~props={"to": _to},
+
       children
     );
 };
@@ -86,12 +107,17 @@ module NavLink = {
 module BrowserRouter = {
   [@bs.module "react-router-dom"]
   external browserRouter : ReasonReact.reactClass = "BrowserRouter";
-  let make = (children) =>
-    ReasonReact.wrapJsForReason(~reactClass=browserRouter, ~props=Js.Obj.empty(), children);
+  let make = children =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=browserRouter,
+      ~props=Js.Obj.empty(),
+      children
+    );
 };
 
 module ServerRouter = {
-  [@bs.module "react-router"] external staticRouter : ReasonReact.reactClass = "StaticRouter";
+  [@bs.module "react-router"]
+  external staticRouter : ReasonReact.reactClass = "StaticRouter";
   let make = (~context: Js.Json.t, ~location: Js.Json.t, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=staticRouter,
@@ -99,5 +125,3 @@ module ServerRouter = {
       children
     );
 };
-
-let withROuter = (component) => <Route render=component />;
