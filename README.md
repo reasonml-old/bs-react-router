@@ -8,7 +8,7 @@ This is the Reason interop wrapper for [React Router](https://reacttraining.com/
 npm install --save bs-react-router
 ```
 
-Add `bs-react-router` to your `bs-dependencies`: **bsconfig.json**git status
+Add `bs-react-router` to your `bs-dependencies`: **bsconfig.json**
 
 ```bash
 {
