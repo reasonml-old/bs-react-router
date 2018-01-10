@@ -3,7 +3,12 @@
   "namespace": true,
   "sources": [
     {
-      "dir": "src"
+      "dir": "src",
+      "public": "all"
+    },
+    {
+      "dir": "examples",
+      "type": "dev"
     }
   ],
   "refmt": 3,

@@ -36,10 +36,10 @@ module Route = {
 };
 
 module Switch = {
-  [@bs.module "react-router-dom"] external _switch : ReasonReact.reactClass = "Switch";
+  [@bs.module "react-router-dom"] external reactClass : ReasonReact.reactClass = "Switch";
   let make = (children) =>
     ReasonReact.wrapJsForReason(
-      ~reactClass=_switch,
+      ~reactClass,
       ~props=Js.Obj.empty(),
       children
     );
@@ -49,13 +49,13 @@ module Link = {
   [@bs.module "react-router-dom"] external link : ReasonReact.reactClass = "Link";
   let make =
       (
-        ~_to: string,
+        ~to_: string,
         children
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=link,
       ~props={
-        "to": _to
+        "to": to_
       },
       children
     );
@@ -65,7 +65,7 @@ module NavLink = {
   [@bs.module "react-router-dom"] external navLink : ReasonReact.reactClass = "NavLink";
   let make =
       (
-        ~_to: string,
+        ~to_: string,
         ~activeClassName: option(string)=?,
         ~style: option(ReactDOMRe.style)=?,
         ~activeStyle: option(ReactDOMRe.style)=?,
@@ -74,7 +74,7 @@ module NavLink = {
     ReasonReact.wrapJsForReason(
       ~reactClass=navLink,
       ~props={
-        "to": _to,
+        "to": to_,
         "activeClassName": Js.Null_undefined.from_opt(activeClassName),
         "style": Js.Null_undefined.from_opt(style),
         "activeStyle": Js.Null_undefined.from_opt(activeStyle)
