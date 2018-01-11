@@ -1,11 +1,34 @@
-type match = {. "params": Js.Dict.t(string)};
+module type RouteMatchParams = {type params;};
+
+/**
+ * This functor allows you to specify the types of the match params that
+ * you expect in your React component.
+ * Use this when you are sure that the React component rendered by a Route
+ * receives the given params.
+ *
+ * Usage:
+ *
+module RouterMatch =
+  SpecifyRouterMatch(
+    {
+      type params = {. "postId": string};
+    }
+  );
+
+let make = (~match: RouterMatch.match, _children) => {...};
+ */
+module SpecifyRouterMatch = (Config: RouteMatchParams) => {
+  type match = {. "params": Config.params};
+};
+
+type genericMatch = {. "params": Js.Dict.t(string)};
 
 type renderFunc =
   {
     .
     /* Use name mangling notation prefix `_` to circumvent reserved names clashing.
        https://bucklescript.github.io/docs/en/object.html#invalid-field-names */
-    "_match": match,
+    "_match": genericMatch,
     "history": History.History.t,
     "location": History.History.Location.t
   } =>
