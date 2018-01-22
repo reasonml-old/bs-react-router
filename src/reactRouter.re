@@ -54,13 +54,13 @@ module Link = {
   [@bs.module "react-router-dom"] external link : ReasonReact.reactClass = "Link";
   let make =
       (
-        ~to_: string,
+        ~_to: string,
         children
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=link,
       ~props={
-        "to": to_
+        "to": _to
       },
       children
     );
@@ -87,7 +87,7 @@ module NavLink = {
     ReasonReact.wrapJsForReason(
       ~reactClass=navLink,
       ~props={
-        "to": to_,
+        "to": _to,
         "activeClassName": Js.Null_undefined.from_opt(activeClassName),
         "style": Js.Null_undefined.from_opt(style),
         "activeStyle": Js.Null_undefined.from_opt(activeStyle)
